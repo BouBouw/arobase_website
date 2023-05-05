@@ -1,0 +1,15 @@
+@font-face { font-family: gg sans; src: url(gg_sans.ttf); }
+
+body {
+    
+}
+
+.bg_person {
+    width: 600px;
+}
+
+.icon_person {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
