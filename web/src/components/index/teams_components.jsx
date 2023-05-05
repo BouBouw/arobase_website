@@ -1,63 +1,53 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faTwitter, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
-
-import team from '../../addons/images/teams_1.png';
+import { useState } from 'react';
 
 const Teams = () => {
-    const Users = (event) => {
-        let imgOject = [
-            `https://this-person-does-not-exist.com/img/avatar-gen11702cad1aea3b3ea2c0b0707d9283e6.jpg`,
-            'https://this-person-does-not-exist.com/img/avatar-gen114c0c3b23c1a46b2b4a9a845dfc2224.jpg', 
-            'https://this-person-does-not-exist.com/img/avatar-genbdb7c8a979ed3643ed8194283f2e3580.jpg', 
-            'https://this-person-does-not-exist.com/img/avatar-gen35b4f3d462b85bb04c2d41babec35802.jpg',
-            'https://this-person-does-not-exist.com/img/avatar-gencfd621e978b3d7a7b1b8aa92c7085332.jpg'
-        ];
+    const imgOject = [
+        `https://imgur.com/JnITf5s.jpg`,
+        'https://imgur.com/jRwDbB6.jpg', 
+        'https://imgur.com/UHNDuFF.jpg', 
+        'https://imgur.com/edf93lA.jpg',
+        'https://imgur.com/8f5Y6k5.jpg'
+    ];
 
-        let main = 0;
-        let prev = imgOject.length - 1;
-        let next = 1;
+    const usernameObject = [
+        'Leonarddoo',
+        'BouBou',
+        'Ergazia',
+        'Yassapi',
+        'Adrien'
+    ]
 
-        function loadGalery() {
-            let mainView = document.getElementById('main');
-            mainView.src = imgOject[main];
-
-            let prevView = document.getElementById('prev');
-            prevView.src = imgOject[prev];
-
-            let nextView = document.getElementById('next');
-            nextView.src = imgOject[next];
+    const nameObject = [
+        'Samuel',
+        'Samy',
+        'Alexis',
+        'Florian',
+        'Adrien'
+    ];
+    
+    const [ main, setMain ] = useState(0);
+    
+    function inRange(val) {
+        if(val < 0) {
+            return imgOject.length + val;
+        } else if(val > imgOject.length - 1) {
+            return val - imgOject.length;
+        } else {
+            return val;
         }
-
-        function leftScroll() {
-            prev = main;
-            main = next;
-           
-            if(prev > (0 - 1)) {
-                prev = imgOject.length + 1;
-            } else {
-                prev--;
-            }
-
-            loadGalery();
-        }
-
-        function rightScroll() {
-            next = main;
-            main = prev;
-
-            if(next > (imgOject.length + 1)) {
-                next = 0;
-            } else {
-                next++;
-            }
-
-            loadGalery();
-        }
-
-        document.getElementById('left_btn').addEventListener("click", leftScroll);
-        document.getElementById('right_btn').addEventListener("click", rightScroll);
     }
+    
+    function leftScroll() {
+        setMain((prevMain) => inRange(prevMain - 1));
+    };
+    
+    function rightScroll() {
+        setMain((prevMain) => inRange(prevMain + 1));
+    };
+
 
     return(
         <div className="p-24 mt-5">
@@ -73,43 +63,25 @@ const Teams = () => {
             </div>
             <div className="mt-24" id="avatars">
                 <ul className="flex flex-row space-x-5 items-center justify-center">
-                    <li>
-                        <div className="flex items-center justify-center bg-gradient-to-r hover:bg-gradient-to-r from-blue-700 hover:from-amber-500 to-indigo-400 hover:to-orange-300 w-32 h-32 rounded-md">
-                            <img src={team} alt='' className=''></img>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="flex items-center justify-center bg-neutral-700 hover:bg-gradient-to-r from-amber-500 to-orange-300 w-32 h-32 rounded-md">
-                            <img src={team} alt='' className=''></img>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="flex items-center justify-center bg-neutral-700 hover:bg-gradient-to-r from-amber-500 to-orange-300 w-32 h-32 rounded-md">
-                            <img src={team} alt='' className=''></img>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="flex items-center justify-center bg-neutral-700 hover:bg-gradient-to-r from-amber-500 to-orange-300 w-32 h-32 rounded-md">
-                            <img src={team} alt='' className=''></img>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="flex items-center justify-center bg-neutral-700 hover:bg-gradient-to-r from-amber-500 to-orange-300 w-32 h-32 rounded-md">
-                            <img src={team} alt='' className=''></img>
-                        </div>
-                    </li>
+                    {imgOject.map((img, index) => 
+                        <li>
+                            <div className={`flex items-center justify-center ${main === index ? ' bg-gradient-to-r ' : ' bg-neutral-700 '} from-blue-700 to-indigo-400 w-32 h-32 rounded-md`}>
+                                <img src={imgOject[inRange(index)]} alt='' className=''></img>
+                            </div>
+                        </li>
+                    )}
                 </ul>
             </div>
             <div className='pt-0'>
                 <ul className='flex flex-row space-x-24 items-center justify-center'>
                     <li className='pt-24'>
-                        <img src={team} alt='' className='opacity-50' id='prev'></img>
+                        <img src={imgOject[inRange(main - 1)]} alt='' className='opacity-50' id='prev'></img>
                     </li>
                     <li className='pt-0'>
-                        <img src={team} alt='' className='' id='main'></img>
+                        <img src={imgOject[inRange(main)]} alt='' className='' id='main'></img>
                     </li>
                     <li className='pt-24'>
-                        <img src={team} alt='' className='opacity-50' id='next'></img>
+                        <img src={imgOject[inRange(main + 1)]} alt='' className='opacity-50' id='next'></img>
                     </li>
                 </ul>
             </div>
@@ -117,19 +89,19 @@ const Teams = () => {
                 <ul className='flex flex-row space-x-24 items-center justify-center'>
                     <li className='pr-12'>
                         <div className='flex flex-col space-y-5 items-center justify-center'>
-                            <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={Users} id='left_btn'>
+                            <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={() => leftScroll()} id='left_btn'>
                                 <FontAwesomeIcon icon={ faArrowLeft } />
                             </button>
-                            <span className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-400' id='last_user'>BouBouw</span>
+                            <span className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-400' id='last_user'>{usernameObject[inRange(main - 1)]}</span>
                         </div>
                     </li>
                     <li className='pt-10'>
                         <ul className='flex flex-col space-y-10 items-center justify-center'>
                             <li>
-                                <div className='flex flex-col space-y-5 items-center justify-center'>
-                                    <span className='text-white font-bold text-4xl'>Samy HAMDI</span>
+                                <div className='flex flex-col space-y-5 items-center justify-center text-center'>
+                                    <span className='text-white font-bold text-4xl'>{nameObject[inRange(main)]}</span>
                                     <p className='text-gray-500 font-bold text-xl'>
-                                        Alias: <span className='font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-300'>BouBouw</span>
+                                        Alias: <span className='font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-300'>{usernameObject[inRange(main)]}</span>
                                     </p>
                                 </div>
                             </li>
@@ -166,10 +138,10 @@ const Teams = () => {
                     </li>
                     <li className='pl-12'>
                         <div className='flex flex-col space-y-5 items-center justify-center'>
-                            <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={Users} id='right_btn'>
+                            <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={() => rightScroll()} id='right_btn'>
                                 <FontAwesomeIcon icon={ faArrowRight } />
                             </button>
-                            <span className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-400' id='next_user'>BouBouw</span>
+                            <span className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-400' id='next_user'>{usernameObject[inRange(main + 1)]}</span>
                         </div>
                     </li>
                 </ul>

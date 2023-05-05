@@ -1,15 +1,7 @@
-import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-import project_1 from '../../addons/images/project_1_person.png';
-
 const Projects = () => {
-    const [ all, setAll ] = useState(true);
-    const [ app, setApp ] = useState(false);
-    const [ web, setWeb ] = useState(false);
-    const [ discord, setDiscord ] = useState(false);
-
     return(
         <div className="p-24 mt-5">
             <div className="flex flex-row space-x-24">
@@ -47,73 +39,17 @@ const Projects = () => {
                 </ul>
             </div>
             <div className="mt-24 flex flex-col space-y-5">
-                <ul className="flex flex-row space-x-10 items-center justify-center">
-                    <li>
-                        <div className="bg-gradient-to-r from-blue-700 to-indigo-400 text-white font-bold rounded-md w-96 h-96">
-                            <div className="flex flex-col space-y-10 items-center justify-center">
-                                <div className="">
-                                    <img src={project_1} alt='' className='h-72'></img>
-                                </div>
-                                <div className="">
-                                    <button className="bg-white/30 backdrop-blur-md w-80 h-10 rounded-md">
-                                        En savoir plus
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="bg-gradient-to-r from-blue-700 to-indigo-400 text-white font-bold rounded-md w-96 h-96">
-                            <div className="flex flex-col space-y-10 items-center justify-center">
-                                <div className="">
-                                    <img src={project_1} alt='' className='h-72'></img>
-                                </div>
-                                <div className="">
-                                    <button className="bg-white/30 backdrop-blur-md w-80 h-10 rounded-md">
-                                        En savoir plus
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="bg-gradient-to-r from-blue-700 to-indigo-400 text-white font-bold rounded-md w-96 h-96">
-                            <div className="flex flex-col space-y-10 items-center justify-center">
-                                <div className="">
-                                    <img src={project_1} alt='' className='h-72'></img>
-                                </div>
-                                <div className="">
-                                    <button className="bg-white/30 backdrop-blur-md w-80 h-10 rounded-md">
-                                        En savoir plus
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <ul className="flex flex-row space-x-10 items-center justify-center">
-                    <li>
-                        <div className="bg-gradient-to-r from-blue-700 to-indigo-400 text-white font-bold rounded-md w-96 h-96">
-                            <div className="flex items-center justify-center">
-                                a 
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="bg-gradient-to-r from-blue-700 to-indigo-400 text-white font-bold rounded-md w-96 h-96">
-                            <div className="flex items-center justify-center">
-                                b 
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="bg-gradient-to-r from-blue-700 to-indigo-400 text-white font-bold rounded-md w-96 h-96">
-                            <div className="flex items-center justify-center">
-                                c 
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <div className='bg-neutral-700 flex flex-row space-x-10 items-center justify-center'>
+                    <div className='p-5'>
+                        a
+                    </div>
+                    <div className='p-5'>
+                        b
+                    </div>
+                    <div className='p-5'>
+                        c
+                    </div>
+                </div> 
                 <div className='pt-10'>
                     <ul className='flex flex-row space-x-24 items-center justify-center'>
                         <li>
