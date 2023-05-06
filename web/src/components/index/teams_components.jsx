@@ -50,18 +50,18 @@ const Teams = () => {
 
 
     return(
-        <div className="p-24 mt-5">
-            <div className="flex flex-col space-y-5 justify-center ml-24">
+        <div className="p-24 md:mt-5">
+            <div className="flex flex-col space-y-5 justify-center md:ml-24">
                 <div>
                     <span className="text-4xl text-white font-bold">Découvrez notre <span className="font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-amber-500 to-orange-300">équipe</span></span>
                 </div>
                 <div>
-                    <p className="text-gray-400 w-1/4">
+                    <p className="text-gray-400 w-auto md:w-1/4">
                         Un profil vous intéresse ? N'hésitez pas a la soliciter sur notre Discord et lui faire part de vos projets.
                     </p>
                 </div>
             </div>
-            <div className="mt-24" id="avatars">
+            <div className="mt-24 hidden md:block" id="avatars">
                 <ul className="flex flex-row space-x-5 items-center justify-center">
                     {imgOject.map((img, index) => 
                         <li>
@@ -72,7 +72,12 @@ const Teams = () => {
                     )}
                 </ul>
             </div>
-            <div className='pt-0'>
+            <div className='mt-24 block md:hidden'>
+                <div className=''>
+                    <img src={imgOject[inRange(main)]} alt='' className=''></img>
+                </div>
+            </div>
+            <div className='pt-0 hidden md:block'>
                 <ul className='flex flex-row space-x-24 items-center justify-center'>
                     <li className='pt-24'>
                         <img src={imgOject[inRange(main - 1)]} alt='' className='opacity-50' id='prev'></img>
@@ -88,7 +93,7 @@ const Teams = () => {
             <div className='pt-10'>
                 <ul className='flex flex-row space-x-24 items-center justify-center'>
                     <li className='pr-12'>
-                        <div className='flex flex-col space-y-5 items-center justify-center'>
+                        <div className='hidden md:flex flex-col space-y-5 items-center justify-center'>
                             <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={() => leftScroll()} id='left_btn'>
                                 <FontAwesomeIcon icon={ faArrowLeft } />
                             </button>
@@ -137,7 +142,7 @@ const Teams = () => {
                         </ul>
                     </li>
                     <li className='pl-12'>
-                        <div className='flex flex-col space-y-5 items-center justify-center'>
+                        <div className='hidden md:flex flex-col space-y-5 items-center justify-center'>
                             <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={() => rightScroll()} id='right_btn'>
                                 <FontAwesomeIcon icon={ faArrowRight } />
                             </button>
@@ -145,6 +150,20 @@ const Teams = () => {
                         </div>
                     </li>
                 </ul>
+                <div className='flex md:hidden items-center justify-center mt-10'>
+                    <ul className='flex flex-row space-x-24 items-center justify-center'>
+                        <li>
+                            <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={() => leftScroll()} id='left_btn'>
+                                <FontAwesomeIcon icon={ faArrowLeft } />
+                            </button>
+                        </li>
+                        <li>
+                            <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={() => rightScroll()} id='right_btn'>
+                                <FontAwesomeIcon icon={ faArrowRight } />
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     )
