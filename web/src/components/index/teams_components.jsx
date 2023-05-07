@@ -91,24 +91,28 @@ const Teams = () => {
                 </ul>
             </div>
             <div className='pt-10'>
-                <ul className='flex flex-row space-x-24 items-center justify-center'>
-                    <li className='pr-12'>
-                        <div className='hidden md:flex flex-col space-y-5 items-center justify-center'>
-                            <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={() => leftScroll()} id='left_btn'>
-                                <FontAwesomeIcon icon={ faArrowLeft } />
-                            </button>
-                            <span className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-400' id='last_user'>{usernameObject[inRange(main - 1)]}</span>
-                        </div>
-                    </li>
-                    <li className='pt-10'>
-                        <ul className='flex flex-col space-y-10 items-center justify-center'>
+                <div className='flex flex-row space-x-48 items-center justify-center'>
+                    <div className=''>
+                        <ul className='flex flex-col space-y-5 items-center justify-center w-32'>
                             <li>
-                                <div className='flex flex-col space-y-5 items-center justify-center text-center'>
-                                    <span className='text-white font-bold text-4xl'>{nameObject[inRange(main)]}</span>
-                                    <p className='text-gray-500 font-bold text-xl'>
-                                        Alias: <span className='font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-300'>{usernameObject[inRange(main)]}</span>
-                                    </p>
-                                </div>
+                                <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={() => leftScroll()} id='left_btn'>
+                                    <FontAwesomeIcon icon={ faArrowLeft } />
+                                </button>
+                            </li>
+                            <li>
+                                <span className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-400' id='last_user'>{usernameObject[inRange(main - 1)]}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className=''>
+                        <ul className='flex flex-col space-y-5 items-center justify-center w-64'>
+                            <li>
+                                <span className='text-white font-bold text-4xl'>{nameObject[inRange(main)]}</span>
+                            </li>
+                            <li>
+                                <p className='text-gray-500 font-bold text-xl'>
+                                    Alias: <span className='font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-300'>{usernameObject[inRange(main)]}</span>
+                                </p>
                             </li>
                             <li>
                                 <p className='text-gray-300 w-96 text-center'>
@@ -140,18 +144,22 @@ const Teams = () => {
                                 </ul>
                             </li>
                         </ul>
-                    </li>
-                    <li className='pl-12'>
-                        <div className='hidden md:flex flex-col space-y-5 items-center justify-center'>
-                            <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={() => rightScroll()} id='right_btn'>
-                                <FontAwesomeIcon icon={ faArrowRight } />
-                            </button>
-                            <span className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-400' id='next_user'>{usernameObject[inRange(main + 1)]}</span>
-                        </div>
-                    </li>
-                </ul>
+                    </div>
+                    <div className=''>
+                        <ul className='flex flex-col space-y-5 items-center justify-center w-32'>
+                            <li>
+                                <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={() => rightScroll()} id='right_btn'>
+                                    <FontAwesomeIcon icon={ faArrowRight } />
+                                </button>
+                            </li>
+                            <li>
+                                <span className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-400' id='next_user'>{usernameObject[inRange(main + 1)]}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div className='flex md:hidden items-center justify-center mt-10'>
-                    <ul className='flex flex-row space-x-24 items-center justify-center'>
+                    <ul className='flex flex-row space-x-16 items-center justify-center'>
                         <li>
                             <button className='text-white bg-neutral-700 w-10 h-10 rounded-md' onClick={() => leftScroll()} id='left_btn'>
                                 <FontAwesomeIcon icon={ faArrowLeft } />

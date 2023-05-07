@@ -33,11 +33,8 @@ const Navbar = () => {
                     </div>
                     <div className="order-last">
                         <div className="hidden md:flex flex-row space-x-5">
-                            <button className="border-2 border-slate-800 text-white font-bold bg-gradient-to-r from-amber-500 to-orange-300 rounded-md h-8 w-42">
-                                <span className="p-5">Se connecter</span>
-                            </button>
-                            <button className="border-2 border-slate-800 text-white font-bold bg-gradient-to-r from-amber-500 to-orange-300 rounded-md h-8 w-42">
-                                <span className="p-5">S'enregistrer</span>
+                            <button className="border-2 border-slate-800 text-white font-bold bg-gradient-to-r from-amber-500 hover:from-blue-700 to-orange-300 hover:to-indigo-400 rounded-md h-8 w-42">
+                                <span className="p-5">Esapce client</span>
                             </button>
                         </div>
                         <div className='flex md:hidden items-center justify-center'>

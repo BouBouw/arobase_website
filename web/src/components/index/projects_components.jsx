@@ -7,7 +7,7 @@ const Projects = () => {
             <div className="flex flex-row space-x-24">
                 <div className="flex flex-col space-y-5 justify-center md:ml-24">
                     <div>
-                        <span className="text-4xl text-white font-bold">Explorez notre <span className='font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-amber-500 to-orange-300'>travail</span></span>
+                        <span className="text-4xl text-white font-bold">Ils nous font <span className='font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-amber-500 to-orange-300'>confiances</span></span>
                     </div>
                     <div>
                         <p className="text-gray-400 w-auto md:w-2/4">
